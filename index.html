@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Attendance Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/papaparse@5.3.2/papaparse.min.js"></script>
+</head>
+<body class="bg-gray-100 p-5">
+
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-2xl font-bold mb-6 text-center text-gray-800">অ্যাটেনডেন্স লাইভ ড্যাশবোর্ড</h1>
+        
+        <div class="overflow-x-auto bg-white shadow-md rounded-lg">
+            <table class="min-w-full text-left" id="attendance-table">
+                <thead class="bg-blue-600 text-white">
+                    <tr id="table-head">
+                        </tr>
+                </thead>
+                <tbody id="table-body" class="text-gray-700">
+                    </tbody>
+            </table>
+        </div>
+        <p class="text-sm text-gray-500 mt-4 text-center">প্রতি ৩০ সেকেন্ড পর ডাটা অটোমেটিক আপডেট হবে।</p>
+    </div>
+
+    <script>
+        const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRKLe15yfAAG2cY47l0fjsF9oPum_Db8JEUGB-kFlq9BsywkI-zBrpzHl4XX0g-wbARM7YvJ-wM6SdL/pub?gid=1893840663&single=true&output=csv';
+
+        function fetchData() {
+            Papa.parse(CSV_URL, {
+                download: true,
+                header: true,
+                complete: function(results) {
+                    const data = results.data;
+                    const headRow = document.getElementById('table-head');
+                    const body = document.getElementById('table-body');
+                    
+                    // টেবিল হেডার তৈরি
+                    if (data.length > 0) {
+                        headRow.innerHTML = Object.keys(data[0]).map(key => `<th class="py-3 px-4 font-semibold">${key}</th>`).join('');
+                    }
+
+                    // টেবিল বডি তৈরি
+                    body.innerHTML = data.map(row => `
+                        <tr class="border-b hover:bg-gray-50">
+                            ${Object.values(row).map(val => `<td class="py-3 px-4">${val}</td>`).join('')}
+                        </tr>
+                    `).join('');
+                }
+            });
+        }
+
+        // শুরুতে একবার কল করা
+        fetchData();
+        // প্রতি ৩০ সেকেন্ড পর পর রিফ্রেশ
+        setInterval(fetchData, 30000);
+    </script>
+</body>
+</html>
