@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>স্মার্ট অ্যাটেন্ডেন্স সিস্টেম</title>
+<title>DOLCE ATTENDANCE</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -517,7 +517,7 @@
   <div class="sidebar-logo">
     <div class="logo-icon"><i class="fa-solid fa-fingerprint"></i></div>
     <div>
-      <h1>অ্যাটেন্ডেন্স<br>ম্যানেজার</h1>
+      <h1>DOLCE</h1>
       <p>HR Management System</p>
     </div>
   </div>
@@ -531,7 +531,7 @@
       <span class="nav-badge" id="emp-count">0</span>
     </button>
     <button class="nav-item" onclick="showPage('attendance')">
-      <i class="fa-solid fa-calendar-check"></i> অ্যাটেন্ডেন্স লগ
+      <i class="fa-solid fa-calendar-check"></i> Atentence LIVE
     </button>
     <div class="nav-section-label" style="margin-top:10px">বিশ্লেষণ</div>
     <button class="nav-item" onclick="showPage('reports')">
@@ -581,7 +581,7 @@
       </div>
       <div class="card">
         <div class="card-header">
-          <div class="card-title"><i class="fa-solid fa-clock"></i> আজকের লগ</div>
+          <div class="card-title"><i class="fa-solid fa-clock"></i> আজকের অ্যাটেন্ডেন্স</div>
           <span class="text-muted" id="today-label"></span>
         </div>
         <div id="today-table"></div>
@@ -679,17 +679,15 @@
    CONFIG: প্রতিটি কর্মচারীর বেতন ও ছুটি
    ══════════════════════════════════════════ */
 const EMP_CFG = {
-  "NAIMUR RAHMAN":  { salary: 15000, leaveDays: 2, color: "#2f81f7" },
-  "FAHAD FARAZI":   { salary: 12000, leaveDays: 2, color: "#3fb950" },
-  "JIBON SARKER":   { salary: 12000, leaveDays: 2, color: "#f85149" },
-  "AL FAHAD FARAZI":{ salary: 12000, leaveDays: 2, color: "#a371f7" },
-  "MKS SOUROV":     { salary: 13000, leaveDays: 2, color: "#d29922" },
-  "MKS SOMRSAT":    { salary: 13000, leaveDays: 2, color: "#e87ba4" },
-  "OMOR FARUK":     { salary: 14000, leaveDays: 2, color: "#f78166" },
-  "MAMUN SARKER":   { salary: 13500, leaveDays: 2, color: "#2f81f7" },
-  "Rakib":          { salary: 11000, leaveDays: 2, color: "#3fb950" },
-  "ABJOL SARKER":   { salary: 12500, leaveDays: 2, color: "#f85149" },
-  "RAFI SARKER":    { salary: 12000, leaveDays: 2, color: "#a371f7" },
+  "NAYMUR RAHMAN":       { salary: 18000, leaveDays: 4, color: "#2f81f7" },
+  "FAHAD FARAZI":        { salary: 18000, leaveDays: 4, color: "#3fb950" },
+  "JIBON SARKER":        { salary: 10200, leaveDays: 4, color: "#f85149" },
+  "MKS SOMRSAT":         { salary: 0,     leaveDays: 4, color: "#e87ba4" },
+  "ZUBAYER HOSSAIN":     { salary: 20000, leaveDays: 4, color: "#f78166" },
+  "MAMUN SARKER":        { salary: 10200, leaveDays: 4, color: "#2f81f7" },
+  "RAKIB SARKER":        { salary: 15000, leaveDays: 4, color: "#3fb950" },
+  "ABJOL SARKER":        { salary: 10200, leaveDays: 4, color: "#f85149" },
+  "SALIM SARKER":        { salary: 18000, leaveDays: 4, color: "#a371f7" },
 };
 
 const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRKLe15yfAAG2cY47l0fjsF9oPum_Db8JEUGB-kFlq9BsywkI-zBrpzHl4XX0g-wbARM7YvJ-wM6SdL/pub?gid=1893840663&single=true&output=csv";
